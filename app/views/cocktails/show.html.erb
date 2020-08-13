@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>cocktail: <%= @cocktail.name %></h2>
+  <p>doses description:</p>
+  <div class="cards d-flex">
+    <% @doses.each do |dose| %>
+    <div class="card">
+      <%= dose.description %>
+      <%= dose.ingredient.name %>
+      <%= link_to "Delete dose", dose_path(dose), class: "btn btn-danger", method: :delete%>
+    <% end %>
+    </div>
+  </div>
+  <div class="link">
+    <%= link_to "< back",  cocktails_path, class: "btn btn-warning"  %>
+    <%= link_to "Add doses",  new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
+  </div>
+</div>
